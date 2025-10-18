@@ -6,7 +6,7 @@ function preload() {
 
 function setup() {
 
-  // 🧭 padding relativi a ogni casella
+  //  padding relativi a ogni casella
   let paddingLeftCell = 30;
   let paddingRightCell = 50;
   let paddingTopCell = 150;
@@ -16,11 +16,11 @@ function setup() {
   let itemSize = 110;
   let rowCount = table.getRowCount();
 
-  // 📐 dimensione di una cella considerando il padding interno
+  //  dimensione di una cella considerando il padding interno
   let cellWidth = itemSize + paddingLeftCell + paddingRightCell;
   let cellHeight = itemSize + paddingTopCell + paddingBottomCell;
 
-  // 🔸 numero di colonne che ci stanno in larghezza
+  //  numero di colonne che ci stanno in larghezza
   let cols = floor((windowWidth - outerPadding * 2) / cellWidth);
   cols = max(cols, 1);
 
@@ -31,7 +31,7 @@ function setup() {
   colorMode(HSB, 360, 100, 100);
   background("black");
 
-  // 🌸 Disegno i fiori
+  //  Disegno i fiori
   for (let rowNumber = 0; rowNumber < rowCount; rowNumber++) {
     let data = table.getRow(rowNumber).obj;
 
@@ -49,7 +49,7 @@ function setup() {
     let colorVal = c2;   
     let petalLength = 70;    
 
-    // 📏 posizione nella griglia
+    // posizione nella griglia
     let col = rowNumber % cols;
     let row = floor(rowNumber / cols);
 
@@ -65,12 +65,12 @@ function setup() {
 
 function drawFlower(centerSize, numPetals, colorVal, stemLength, numLeaves, petalLength) {
 
-  // 🎋 Stelo
+  //  Stelo
   stroke(120, 80, 50);
   strokeWeight(6);
   line(0, centerSize + 20, 0, stemLength + centerSize);
 
-  // 🍃 Foglie
+  // Foglie
   let leafColor = color(120, 60, 70);
   let leafSpacing = stemLength / (numLeaves + 1);
   let halfLeaves = ceil(numLeaves / 2);
@@ -98,7 +98,7 @@ function drawFlower(centerSize, numPetals, colorVal, stemLength, numLeaves, peta
     pop();
   }
 
-  // 🌺 Petali
+  // Petali
   let hue = map(colorVal, 0, 100, 0, 360);
   for (let i = 0; i < numPetals; i++) {
     let angle = TWO_PI / numPetals * i;
@@ -110,7 +110,7 @@ function drawFlower(centerSize, numPetals, colorVal, stemLength, numLeaves, peta
     pop();
   }
 
-  // 🌼 Centro
+  //  Centro
   fill(50, 80, 90);
   noStroke();
   ellipse(0, 0, centerSize * 2, centerSize * 2);
